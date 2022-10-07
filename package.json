@@ -1,0 +1,28 @@
+{
+   "name": "who-types",
+   "version": "1.0.0",
+   "description": "friendly chat",
+   "main": "index.js",
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/ansattz/who-types.git"
+   },
+   "keywords": [],
+   "author": "Douglas Santos",
+   "license": "MIT",
+   "bugs": {
+      "url": "https://github.com/ansattz/who-types/issues"
+   },
+   "homepage": "https://github.com/ansattz/who-types#readme",
+   "dependencies": {
+      "next": "^12.3.1",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0"
+   },
+   "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start",
+      "lint": "next lint"
+   }
+}
