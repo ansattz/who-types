@@ -1,2 +1,2 @@
 # who-types
-friendly chat
+friendly chat written in Next.js
