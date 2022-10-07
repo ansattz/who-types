@@ -1,2 +1,3 @@
 # who-types
-friendly chat written in Next.js
+
+friendly chat to talk about anything with anyone.
