@@ -1,34 +1,7 @@
 import appConfig from '../config.json';
-import { Box, Button, Text, TextField, Image } from '@skynexui/components';
-
-function GlobalStyle() {
-   return (
-    <style global jsx>{`
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        list-style: none;
-      }
-      body {
-        font-family: 'Open Sans', sans-serif;
-      }
-      /* App fit Height */ 
-      html, body, #__next {
-        min-height: 100vh;
-        display: flex;
-        flex: 1;
-      }
-      #__next {
-        flex: 1;
-      }
-      #__next > * {
-        flex: 1;
-      }
-      /* ./App fit Height */ 
-    `}</style>
-  );
-}
+import { useRouter } from 'next/router';
+import React from 'react';
+import { Box, Button, Text, Image } from '@skynexui/components';
 
 function Title(props) {
    const Tag = props.tag || 'h1';
@@ -48,11 +21,11 @@ function Title(props) {
 }
 
 export default function IntoPage() {
-  const username = 'ansattz';
+   const [username, setUsername] = React.useState('');
+   const route = useRouter();
 
   return (
     <>
-     <GlobalStyle />
      <Box
         styleSheet={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -77,27 +50,30 @@ export default function IntoPage() {
         >
           {/* Form */}
           <Box
-            as="form"
+          as="form"
+          onSubmit={function (info){
+          info.preventDefault();
+          route.push('/chat');
+
+          }}
             styleSheet={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
               width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
             }}
-         >
+          >
             <Title tag="h2">Surfe textos com o seu teclado!</Title>
             <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutrals[300] }}>
               {appConfig.name}
             </Text>
 
-            <TextField
-              fullWidth
-              textFieldColors={{
-                neutral: {
-                  textColor: appConfig.theme.colors.neutrals[200],
-                  mainColor: appConfig.theme.colors.neutrals[900],
-                  mainColorHighlight: appConfig.theme.colors.primary[500],
-                  backgroundColor: appConfig.theme.colors.neutrals[800],
-                },
-              }}
+            <input
+            type="text"
+            value={username}
+            onChange={function (e) {
+               const v = e.target.value;
+               // trocar o valor da variavel v
+               setUsername(v);
+            }}
             />
             <Button
               type='submit'
