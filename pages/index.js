@@ -1,7 +1,7 @@
 import appConfig from '../config.json';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { Box, Button, Text, Image } from '@skynexui/components';
+import { Box, Button, TextField, Text, Image } from '@skynexui/components';
 
 function Title(props) {
    const Tag = props.tag || 'h1';
@@ -66,15 +66,25 @@ export default function IntoPage() {
               {appConfig.name}
             </Text>
 
-            <input
-            type="text"
-            value={username}
-            onChange={function (e) {
-               const v = e.target.value;
-               // trocar o valor da variavel v
-               setUsername(v);
-            }}
+            <TextField
+               type="text"
+               value={username}
+               onChange={function (e) {
+                  const v = e.target.value;
+                  // trocar o valor da variavel v
+                  setUsername(v);
+               }}
+                 fullWidth
+                 textFieldColors={{
+                   neutral: {
+                     textColor: appConfig.theme.colors.neutrals[200],
+                     mainColor: appConfig.theme.colors.neutrals[900],
+                     mainColorHighlight: appConfig.theme.colors.primary[500],
+                     backgroundColor: appConfig.theme.colors.neutrals[800],
+                   },
+                 }}
             />
+    
             <Button
               type='submit'
               label='Entrar'
