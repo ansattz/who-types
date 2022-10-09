@@ -1,3 +1,3 @@
 # who-types
 
-friendly chat to talk about anything with anyone.
+friendly chat to chat with github users.
