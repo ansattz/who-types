@@ -7,11 +7,9 @@ function GlobalStyle() {
             box-sizing: border-box;
             list-style: none;
             overflow-wrap: break-word;
-            overflow-x: hidden;
             }
             body {
             font-family: 'Open Sans', sans-serif;
-            overflow-x: hidden;
             }
             /* App fit Height */ 
             html, body, #__next {
@@ -27,14 +25,14 @@ function GlobalStyle() {
             }
             /* ./App fit Height */ 
          `}</style>
-      );
+   );
 }
 
 export default function ChatApp({Component, pageProps}) {
    return (
       <>
-         <GlobalStyle/>
-         <Component {...pageProps}/>
+         <GlobalStyle />
+         <Component {...pageProps} />
       </>
    )
 }
